@@ -41,17 +41,24 @@ angular.module('candidate',[])
       $scope.addComment = function(formContent,candidate) {
         if($scope.formContent === '') { return; }
         console.log("In addComment with "+formContent);
-        $scope.commentMap[candidate.name].push(
-            {name: $scope.username,
+        var obj = {name: $scope.username,
             title: formContent,
             upvotes: 0,
-            candID: candidate._id});
+            candID: candidate._id};
+        if($scope.commentMap[candidate.name] == []) {
+          $scope.commentMap[candidate.name] = [obj]
+        }
+        else {
+          var array = $scope.commentMap[candidate.name];
+          array.push(obj);
+          $scope.commentMap[candidate.name] = array;
+        }
         $scope.createComment({
-            name: $scope.username,
-            title: formContent,
-            upvotes: 0,
-            candID: candidate._id
-          });
+          name: $scope.username,
+          title: formContent,
+          upvotes: 0,
+          candID: candidate._id
+        });
 //        $scope.formContent = '';
       };
       
