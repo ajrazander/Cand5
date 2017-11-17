@@ -16,6 +16,7 @@ h3 {
 .he {
   background-color: lightblue;
   border: 2px ridge black;
+  width: 430px;
 }
 
 .cand {
@@ -32,5 +33,5 @@ h3 {
   width: 400px;
   padding: 3px;
   margin: 3px;
-  margin-top: 5px;
+  margin-top: 8px;
 }

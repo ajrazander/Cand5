@@ -94,5 +94,12 @@ angular.module('candidate',[])
           });
         $scope.getAllComments();
       };
+      $scope.deleteAll = function() {
+        $http.delete('/delete')
+          .success(function(data){
+            console.log("delete worked");
+        }); 
+        $scope.getAllcandidates();
+      };
     }
   ]);

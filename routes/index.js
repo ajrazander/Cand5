@@ -83,10 +83,22 @@ router.put('/candidates/:candidate/upvote', function(req, res, next) {
   });
 });
 
-router.delete('/candidates/:candidate', function(req, res) {
+router.delete('/candidates/', function(req, res) {
   console.log("in Delete");
   req.response.remove();
   res.sendStatus(200);
 });
+
+//delete all vaules in Comment model
+router.delete('/delete', function(req,res,next) {
+  console.log('in delete');
+  Response.remove({}, function(err) {
+    if(err) return handleError(err);
+  });
+  Candidate.remove({}, function(err) {
+    if(err) return handleError(err);
+  });
+});
+
 
 module.exports = router;

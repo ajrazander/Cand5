@@ -30,6 +30,7 @@
       <input type="text" ng-model="formCand"></input>
       <button type="submit">Nominate A Candidate</button>
     </form>
+    <button type="button" ng-click="deleteAll()">Delete All!</button>
   </div>
     
   <div class="container cand" ng-repeat="candidate in candidates | orderBy: '-upvotes'">
