@@ -47,8 +47,6 @@ router.delete('/responses/:response', function(req, res) {
   res.sendStatus(200);
 });
 
-
-
 router.get('/candidates', function(req, res, next) {
   Candidate.find(function(err, candidates) {
     if(err) {return next(err);}
