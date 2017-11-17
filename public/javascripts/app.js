@@ -2,7 +2,6 @@ angular.module('candidate',[])
   .controller('MainCtrl',[
     '$scope','$http',
     function($scope,$http) {
-      $scope.test = "hello world!";
       $scope.candidates = [];
       $scope.comments = [];
       $scope.commentMap = new Map();
@@ -23,14 +22,14 @@ angular.module('candidate',[])
         });
       };
       
-      $scope.addCand = function() {
-        if($scope.formCand === '') { return; }
-        console.log("In addCand with "+$scope.formCand);
+      $scope.addCand = function(cand) {
+        if(cand === '') { return; }
+        console.log("In addCand with "+cand);
         $scope.createCand({
-          name: $scope.formCand,
+          name: cand,
           upvotes: 0,
         });
-        $scope.formCand = '';
+//        $scope.formCand = '';
       };
       
       $scope.createComment = function(comment) {
