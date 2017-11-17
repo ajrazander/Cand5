@@ -6,11 +6,13 @@ angular.module('candidate',[])
       $scope.comments = [];
       
       $scope.login = function(uname) {
-        if(uname === '') { return; }
+        if(uname === '' || uname === undefined) { return; }
+        else{
         console.log("In login with "+uname);
         $scope.username = uname;
         console.log("In login with "+$scope.username);
         $scope.isLoggedIn = true;
+        }
       };
       
       $scope.createCand = function(candidate) {
