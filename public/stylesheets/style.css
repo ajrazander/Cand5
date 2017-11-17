@@ -18,13 +18,13 @@ h3 {
 }
 
 .he {
-  background-color: lightblue;
+  background-color: rgba(76, 80, 175, 0.8);
   border: 2px ridge black;
   width: 430px;
 }
 
 .cand {
-  background-color: lightblue;
+  background-color: rgba(76, 80, 175, 0.8);
   border: 2px ridge black;
   width: 430px;
   padding: 5px;
