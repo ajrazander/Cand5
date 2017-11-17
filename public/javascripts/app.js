@@ -49,12 +49,10 @@ angular.module('candidate',[])
       };
       
       $scope.incrementUpvotesCand = function(candidate) {
-        candidate.upvotes += 1;
         $scope.upvoteCand(candidate);
         $scope.getAllcandidates();
       };
       $scope.incrementUpvotesCom = function(comment) {
-        comment.upvotes += 1;
         $scope.upvoteCom(comment);
         $scope.getAllComments();
       };
