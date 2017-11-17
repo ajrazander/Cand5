@@ -22,16 +22,19 @@ angular.module('candidate',[])
       };
       
       $scope.addCand = function(cand) {
-        if(cand === '') { return; }
+        var bool = true;
+        if(cand === '') {bool = false;}
         console.log("In addCand with "+cand);
+       
         for (i = 0; i < $scope.candidates.length; i++) { 
-            if(cand.name === $scope.candidates[i].name) { return;}
+            if(cand.name === $scope.candidates[i].name) {bool = false;}
         }
-        $scope.createCand({
-          name: cand,
-          upvotes: 0,
-        });
-//        $scope.formCand = '';
+        if(bool){
+          $scope.createCand({
+            name: cand,
+            upvotes: 0,
+          });
+        }
       };
       
       $scope.createComment = function(comment) {
