@@ -40,7 +40,7 @@
       <div ng-init="isClicked = false" ng-if="!isClicked">
         <button type="submit">Add A Comment</button>
         
-        <div ng-repeat="comment in getComments(candidate)">
+        <div ng-repeat="comment in comments">
         <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesCom(comment)"></span>
         <span class="glyphicon glyphicon-remove" ng-if="username === comment.name" ng-click="delete(comment)"></span>
           {{comment.name}} - votes: {{comment.upvotes}}
