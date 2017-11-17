@@ -29,7 +29,6 @@ router.param('response', function(req, res, next, id) {
     return next();
   });
 });
-
 router.get('/responses/:response', function(req, res) {
   res.json(req.reponse);
 });
@@ -66,7 +65,7 @@ router.param('candidate', function(req, res, next, id) {
   var query = Candidate.findById(id);
   query.exec(function (err, candidate){
     if (err) {return next(err);}
-    if (!candidate) {return next(new Error("can't find response"));}
+    if (!candidate) {return next(new Error("can't find candidate"));}
     req.candidate = candidate;
     return next();
   });
