@@ -37,7 +37,7 @@
         <input type="text" placeholder="Your comment" ng-model="formContent"></input>
       </form>
       
-      <div ng-init="isClicked = false" ng-if="isClicked">
+      <div ng-init="isClicked = false" ng-if="!isClicked">
         <button type="submit">Add A Comment</button>
         
         <div ng-repeat="comment in getComments(candidate)">
