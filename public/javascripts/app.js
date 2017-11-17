@@ -33,7 +33,7 @@ angular.module('candidate',[])
       };
       
       $scope.createComment = function(comment) {
-        return $http.post('/response', comment).success(function(data){
+        return $http.post('/responses', comment).success(function(data){
           $scope.comments.push(data);
         });
       };
