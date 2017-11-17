@@ -64,12 +64,12 @@ angular.module('candidate',[])
       };
       
       $scope.getAllcandidates(); //create initial candidate list 
-      $scope.getComments = function(candidate) {
-        return $http.get('/responses/' + candidate._id )
-        .success(function(data){
+      $scope.getAllComments = function() {
+        return $http.get('/responses/').success(function(data){
           angular.copy(data, $scope.comments);
         });
       };
+      $scope.getAllComments(); //create initial candidate list 
       
       $scope.upvoteCand = function(candidate) {
         return $http.put('/candidates/' + candidate._id + '/upvote')
