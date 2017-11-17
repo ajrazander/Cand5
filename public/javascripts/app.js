@@ -30,7 +30,7 @@ angular.module('candidate',[])
         $scope.formCand = '';
       };
       $scope.createComment = function(comment) {
-        return $http.post('/comments', comment).success(function(data){
+        return $http.post('/response', comment).success(function(data){
           $scope.comments.push(data);
         });
       };
@@ -47,7 +47,7 @@ angular.module('candidate',[])
             title: $scope.formContent,
             upvotes: 0,
             candID: candidate._id
-          })
+          });
         $scope.formContent = '';
       };
       $scope.incrementUpvotesCand = function(candidate) {
@@ -65,7 +65,7 @@ angular.module('candidate',[])
       };
       $scope.getAllcandidates(); //create initial candidate list 
       $scope.getComments = function(candidate) {
-        return $http.get('/comments/' + candidate._id )
+        return $http.get('/responses/' + candidate._id )
         .success(function(data){
           angular.copy(data, $scope.comments);
         });
@@ -78,14 +78,14 @@ angular.module('candidate',[])
         });
       };
       $scope.upvoteCom = function(comment) {
-        return $http.put('/comments/' + comment._id + '/upvote')
+        return $http.put('/responses/' + comment._id + '/upvote')
         .success(function(data){
           console.log("upvote worked");
           comment.upvotes += 1;
         });
       };
       $scope.delete = function(comment) {
-        $http.delete('/comments/' + comment._id )
+        $http.delete('/responses/' + comment._id )
           .success(function(data){
             console.log("delete worked");
           });

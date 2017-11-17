@@ -3,29 +3,29 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 var Candidate = mongoose.model('Candidate');
-var Comment = mongoose.model('Comment');
+var Response = mongoose.model('Response');
 
-router.get('/comments', function(req, res, next) {
-  Comment.find(function(err, comments) {
+router.get('/responses', function(req, res, next) {
+  Response.find(function(err, responses) {
     if(err) {return next(err);}
-    res.json(comments);
+    res.json(responses);
   });
 });
 
-router.post('/comments', function(req, res, next) {
-  var comment = new Comment(req.body);
-  comment.save(function(err, comment) {
+router.post('/responses', function(req, res, next) {
+  var response = new Response(req.body);
+  response.save(function(err, response) {
     if(err) {return next(err);}
-    res.json(comment);
+    res.json(response);
   });
 });
 
-router.param('comment', function(req, res, next, id) {
-  var query = Comment.findById(id);
-  query.exec(function (err, comment){
+router.param('response', function(req, res, next, id) {
+  var query = Response.findById(id);
+  query.exec(function (err, response){
     if (err) {return next(err);}
-    if (!comment) {return next(new Error("can't find comment"));}
-    req.comment = comment;
+    if (!response) {return next(new Error("can't find response"));}
+    req.response = response;
     return next();
   });
 });
@@ -34,26 +34,26 @@ router.param('candidate', function(req, res, next, id) {
   var query = Candidate.find({"candID" : id});
   query.exec(function (err, candidate){
     if (err) {return next(err);}
-    if (!candidate) {return next(new Error("can't find comments"));}
+    if (!candidate) {return next(new Error("can't find responses"));}
     req.candidate = candidate;
     return next();
   });
 });
 
-router.get('/comments/:candidate', function(req, res) {
+router.get('/responses/:candidate', function(req, res) {
   res.json(req.candidate);
 });
 
-router.put('/comments/:comment/upvote', function(req, res, next) {
-  req.comment.upvote(function(err, comment){
+router.put('/responses/:response/upvote', function(req, res, next) {
+  req.response.upvote(function(err, response){
     if (err) { return next(err); }
-    res.json(comment);
+    res.json(response);
   });
 });
 
-router.delete('/comments/:comment', function(req, res) {
+router.delete('/responses/:response', function(req, res) {
   console.log("in Delete");
-  req.comment.remove();
+  req.response.remove();
   res.sendStatus(200);
 });
 
@@ -79,7 +79,7 @@ router.param('candidate', function(req, res, next, id) {
   var query = Candidate.findById(id);
   query.exec(function (err, candidate){
     if (err) {return next(err);}
-    if (!candidate) {return next(new Error("can't find comment"));}
+    if (!candidate) {return next(new Error("can't find response"));}
     req.candidate = candidate;
     return next();
   });
