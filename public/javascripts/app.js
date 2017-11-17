@@ -26,7 +26,7 @@ angular.module('candidate',[])
         if(cand === '') {bool = false;}
         console.log("In addCand with "+cand);
        
-        for (i = 0; i < $scope.candidates.length; i++) { 
+        for (var i = 0; i < $scope.candidates.length; i++) { 
             console.log("cand.name: ", cand.name, "candidates[i].name:", $scope.candidates[i].name);
             if(cand.name === $scope.candidates[i].name) {bool = false;}
         }
