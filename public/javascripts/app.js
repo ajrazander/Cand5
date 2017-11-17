@@ -15,7 +15,7 @@ angular.module('candidate',[])
       
       $scope.createCand = function(candidate) {
         return $http.post('/candidates', candidate).success(function(data){
-          for each(cand in candidates) {
+          forEach(cand in candidates) {
             if(cand.name === candidate.name) { return; }
           }
           $scope.candidates.push(data);
