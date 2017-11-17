@@ -38,13 +38,16 @@ angular.module('candidate',[])
         if($scope.formContent === '') { return; }
         console.log("In addComment with "+$scope.formContent);
         $scope.commentMap.get(candidate.name).push(
-          $scope.createComment({
+            {name: $scope.formUsername,
+            title: $scope.formContent,
+            upvotes: 0,
+            candID: candidate._id});
+        $scope.createComment({
             name: $scope.formUsername,
             title: $scope.formContent,
             upvotes: 0,
             candID: candidate._id
           })
-        );
         $scope.formContent = '';
       };
       $scope.incrementUpvotesCand = function(candidate) {
