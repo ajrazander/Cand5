@@ -6,22 +6,36 @@
   <script src="javascripts/app.js"></script>
 </head>
 <body ng-app="candidate" ng-controller="MainCtrl">
+  
+ <div ng-init="isLoggedIn = false" ng-if"!isLoggedIn">
+    <form ng-submit="login()" style = "margin-top30px;">
+      <input type="text" value="Username" ng-model="formUsername"></input>
+      <button type="submit">Login</button>
+    </form>
+ </div>
+  
+ <div ng-if="isLoggedIn">
   <div class="row" style="margin:20px">
   <div class="col-md-6 col-md-offset-3">
   <div class = "page-header">  
     <h1>The Candidates!</h1>
   </div>
-    <form ng-submit="addCand()" style = "margin-top30px;">
+    <form ng-submit="addComment()" style = "margin-top30px;">
       <input type="text" ng-model="formContent"></input>
       <button type="submit">Add A Candidate</button>
     </form>
   <div ng-repeat="candidate in candidates | orderBy: '-votes'">
-    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(candidate)"></span>
-    {{candidate.name}} - votes: {{candidate.votes}}
+    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesCand(candidate)"></span>
+      {{candidate.name}} - votes: {{candidate.votes}}
+    <div ng-repeat="comment in comments">
+      <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesCom(comment)"></span>
+        {{comment.name}} - votes: {{comment.votes}}
+    </div>
   </div>
   </div>
   </div>
-
+ </div>
+ 
 </body>
 </html>
 
