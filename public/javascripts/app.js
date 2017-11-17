@@ -25,7 +25,7 @@ angular.module('candidate',[])
         if(cand === '') { return; }
         console.log("In addCand with "+cand);
         for (i = 0; i < $scope.candidates.length; i++) { 
-            if(cand.name == candidate.name) { return;}
+            if(cand.name === $scope.candidates[i].name) { return;}
         }
         $scope.createCand({
           name: cand,
