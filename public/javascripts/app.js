@@ -95,7 +95,7 @@ angular.module('candidate',[])
         $scope.getAllComments();
       };
       $scope.deleteAll = function() {
-        $http.delete('/delete')
+        $http.post('/delete')
           .success(function(data){
             console.log("delete worked");
         }); 
