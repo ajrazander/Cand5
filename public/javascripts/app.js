@@ -7,7 +7,6 @@ angular.module('candidate',[])
       $scope.comments = [];
       $scope.commentMap = new Map();
       
-      
       $scope.login = function(uname) {
         if(uname === '') { return; }
         console.log("In login with "+uname);
