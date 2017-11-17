@@ -5,7 +5,7 @@ angular.module('candidate',[])
       $scope.test = "hello world!";
       $scope.candidates = [];
       $scope.comments = [];
-      $scope.commentMap = Map();
+      $scope.commentMap = new Map();
       $scope.login = function() {
         if($scope.formUsername === '') { return; }
         console.log("In login with "+$scope.formUsername);
