@@ -4,7 +4,6 @@ angular.module('candidate',[])
     function($scope,$http) {
       $scope.candidates = [];
       $scope.comments = [];
-      $scope.commentMap = new Object();
       
       $scope.login = function(uname) {
         if(uname === '') { return; }
@@ -18,7 +17,6 @@ angular.module('candidate',[])
         return $http.post('/candidates', candidate).success(function(data){
           $scope.candidates.push(data);
           console.log("Creating Candidate: " + candidate.name);
-          $scope.commentMap[candidate.name] = [];
         });
       };
       
@@ -39,25 +37,13 @@ angular.module('candidate',[])
       };
       
       $scope.addComment = function(formContent,candidate) {
-        if($scope.formContent === '') { return; }
-        console.log("In addComment with "+formContent);
-        var obj = {name: $scope.username,
-            title: formContent,
-            upvotes: 0,
-            candID: candidate._id};
-        if($scope.commentMap[candidate.name] == []) {
-          $scope.commentMap[candidate.name] = [obj]
-        }
-        else {
-          var array = $scope.commentMap[candidate.name];
-          array.push(obj);
-          $scope.commentMap[candidate.name] = array;
-        }
+        if(formContent === '') { return; }
+        console.log("In addComment with " + formContent);
         $scope.createComment({
           name: $scope.username,
           title: formContent,
           upvotes: 0,
-          candID: candidate._id
+          candID: candidate.name
         });
 //        $scope.formContent = '';
       };

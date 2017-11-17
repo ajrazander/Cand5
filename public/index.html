@@ -39,10 +39,12 @@
       </form>
       
       <div ng-init="isClicked = false" ng-if="!isClicked">
-        <div ng-repeat="comment in commentMap.get(candidate.name)">
-        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesCom(comment)"></span>
-        <span class="glyphicon glyphicon-remove" ng-if="username === comment.name" ng-click="delete(comment)"></span>
-          {{comment.name}} - votes: {{comment.upvotes}}
+        <div ng-repeat="comment in comments">
+          <div ng-if="comment.candID === candidate.name">
+            <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesCom(comment)"></span>
+            <span class="glyphicon glyphicon-remove" ng-if="username === comment.name" ng-click="delete(comment)"></span>
+            {{comment.name}} - votes: {{comment.upvotes}}
+          </div>
         </div>
       </div>
   </div>
