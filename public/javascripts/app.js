@@ -4,7 +4,7 @@ angular.module('candidate',[])
     function($scope,$http) {
       $scope.candidates = [];
       $scope.comments = [];
-      $scope.commentMap = new Map();
+      $scope.commentMap = new Object();
       
       $scope.login = function(uname) {
         if(uname === '') { return; }
@@ -18,7 +18,7 @@ angular.module('candidate',[])
         return $http.post('/candidates', candidate).success(function(data){
           $scope.candidates.push(data);
           console.log("Creating Candidate: " + candidate.name);
-          $scope.commentMap.set(candidate.name,[]);
+          $scope.commentMap[candidate.name] = [];
         });
       };
       
@@ -41,7 +41,7 @@ angular.module('candidate',[])
       $scope.addComment = function(formContent,candidate) {
         if($scope.formContent === '') { return; }
         console.log("In addComment with "+formContent);
-        $scope.commentMap.get(candidate.name).push(
+        $scope.commentMap[candidate.name].push(
             {name: $scope.username,
             title: formContent,
             upvotes: 0,
