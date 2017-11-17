@@ -38,21 +38,21 @@ angular.module('candidate',[])
         });
       };
       
-      $scope.addComment = function(candidate) {
+      $scope.addComment = function(formContent,candidate) {
         if($scope.formContent === '') { return; }
-        console.log("In addComment with "+$scope.formContent);
+        console.log("In addComment with "+formContent);
         $scope.commentMap.get(candidate.name).push(
-            {name: $scope.formUsername,
-            title: $scope.formContent,
+            {name: $scope.username,
+            title: formContent,
             upvotes: 0,
             candID: candidate._id});
         $scope.createComment({
-            name: $scope.formUsername,
-            title: $scope.formContent,
+            name: $scope.username,
+            title: formContent,
             upvotes: 0,
             candID: candidate._id
           });
-        $scope.formContent = '';
+//        $scope.formContent = '';
       };
       
       $scope.incrementUpvotesCand = function(candidate) {
