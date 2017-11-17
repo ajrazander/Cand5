@@ -90,7 +90,7 @@ router.delete('/candidates/', function(req, res) {
 });
 
 //delete all vaules in Comment model
-router.delete('/delete', function(req,res,next) {
+router.post('/delete', function(req,res,next) {
   console.log('in delete');
   Response.remove({}, function(err) {
     if(err) return handleError(err);
