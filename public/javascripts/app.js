@@ -23,7 +23,7 @@ angular.module('candidate',[])
       
       $scope.addCand = function(cand) {
         var bool = true;
-        if(cand === '') {bool = false;}
+        if(cand === undefined) {bool = false;}
         console.log("In addCand with "+cand);
        
         for (var i = 0; i < $scope.candidates.length; i++) { 
