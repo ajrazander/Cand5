@@ -15,9 +15,6 @@ angular.module('candidate',[])
       
       $scope.createCand = function(candidate) {
         return $http.post('/candidates', candidate).success(function(data){
-          for (i = 0; i < $scope.candidates.length; i++) { 
-            if(cand.name == candidate.name) { return; }
-          }
           $scope.candidates.push(data);
           $scope.getAllcandidates();
           console.log("Creating Candidate: " + candidate.name);
@@ -27,6 +24,9 @@ angular.module('candidate',[])
       $scope.addCand = function(cand) {
         if(cand === '') { return; }
         console.log("In addCand with "+cand);
+        for (i = 0; i < $scope.candidates.length; i++) { 
+            if(cand.name == candidate.name) { return;}
+        }
         $scope.createCand({
           name: cand,
           upvotes: 0,
