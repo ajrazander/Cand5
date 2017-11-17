@@ -36,12 +36,14 @@ angular.module('candidate',[])
       $scope.addComment = function(candidate) {
         if($scope.formContent === '') { return; }
         console.log("In addComment with "+$scope.formContent);
-        $scope.createComment({
-          name: $scope.formUsername,
-          title: $scope.formContent,
-          upvotes: 0,
-          candID: candidate._id
-        });
+        $scope.commentMap.get(candidate.name).push(
+          $scope.createComment({
+            name: $scope.formUsername,
+            title: $scope.formContent,
+            upvotes: 0,
+            candID: candidate._id
+          });
+        );
         $scope.formContent = '';
       };
       $scope.incrementUpvotesCand = function(candidate) {
@@ -64,7 +66,6 @@ angular.module('candidate',[])
           angular.copy(data, $scope.comments);
         });
       };
-      $scope.getAllcandidates();
       $scope.upvoteCand = function(candidate) {
         return $http.put('/candidates/' + candidate._id + '/upvote')
         .success(function(data){
