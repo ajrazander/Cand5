@@ -29,7 +29,7 @@
       <button type="submit">Nominate A Candidate</button>
     </form>
     
-  <div id="container" ng-repeat="candidate in candidates | orderBy: '-upvotes'">
+  <div class="container cand" ng-repeat="candidate in candidates | orderBy: '-upvotes'">
     <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesCand(candidate)"></span>
       <b>{{candidate.name}}</b> - votes: {{candidate.upvotes}}
       

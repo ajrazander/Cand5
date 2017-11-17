@@ -8,7 +8,7 @@ var ResponseSchema = new mongoose.Schema({
 
 mongoose.model('Response', ResponseSchema);
 
-ResponseSchema.methods.upvoteCom = function(cb) {
+ResponseSchema.methods.upvote = function(cb) {
   this.upvotes += 1;
   this.save(cb);
 };

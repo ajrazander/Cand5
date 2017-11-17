@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.cand {
+  background-color: lightblue;
+  border: 2px black double;
+}

@@ -30,23 +30,12 @@ router.param('response', function(req, res, next, id) {
   });
 });
 
-router.param('candidate', function(req, res, next, id) {
-  var query = Candidate.find({"candID" : id});
-  query.exec(function (err, candidate){
-    if (err) {return next(err);}
-    if (!candidate) {return next(new Error("can't find responses"));}
-    req.candidate = candidate;
-    return next();
-  });
+router.get('/responses/:response', function(req, res) {
+  res.json(req.reponse);
 });
-
-router.get('/responses/:candidate', function(req, res) {
-  res.json(req.candidate);
-});
-
 
 router.put('/responses/:response/upvote', function(req, res, next) {
-  req.response.upvoteCom(function(err, response){
+  req.response.upvote(function(err, response){
     if (err) { return next(err); }
     res.json(response);
   });
@@ -57,7 +46,6 @@ router.delete('/responses/:response', function(req, res) {
   req.response.remove();
   res.sendStatus(200);
 });
-
 
 
 
