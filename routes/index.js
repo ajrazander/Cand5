@@ -97,5 +97,10 @@ router.put('/candidates/:candidate/upvote', function(req, res, next) {
   });
 });
 
+router.delete('/candidates/delete', function(req, res) {
+  console.log("in Delete");
+  req.response.remove();
+  res.sendStatus(200);
+});
 
 module.exports = router;
