@@ -44,6 +44,7 @@ router.get('/responses/:candidate', function(req, res) {
   res.json(req.candidate);
 });
 
+
 router.put('/responses/:response/upvote', function(req, res, next) {
   req.response.upvote(function(err, response){
     if (err) { return next(err); }
