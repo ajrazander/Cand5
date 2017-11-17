@@ -71,7 +71,7 @@ angular.module('candidate',[])
       };
       $scope.getAllComments(); //create initial candidate list 
       
-      $scope.upvoteCand = function(candidate) {
+      $scope.upvote = function(candidate) {
         return $http.put('/candidates/' + candidate._id + '/upvote')
         .success(function(data){
           console.log("upvote worked");
@@ -79,7 +79,7 @@ angular.module('candidate',[])
         });
       };
       
-      $scope.upvoteCom = function(comment) {
+      $scope.upvote = function(comment) {
         return $http.put('/responses/' + comment._id + '/upvote')
         .success(function(data){
           console.log("upvote worked");
