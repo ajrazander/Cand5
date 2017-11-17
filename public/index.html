@@ -30,8 +30,9 @@
     </form>
     
   <div class="container cand" ng-repeat="candidate in candidates | orderBy: '-upvotes'">
+    <h3>{{candidate.name}}</h3>
     <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesCand(candidate)"></span>
-      <b>{{candidate.name}}</b> - votes: {{candidate.upvotes}}
+    - votes: {{candidate.upvotes}}
       
       <form ng-submit="addComment(formContent, candidate)" style = "margin-top30px;">
         <input type="text" placeholder="Your comment" ng-model="formContent"></input>
@@ -41,10 +42,15 @@
       <div ng-init="isClicked = false" ng-if="!isClicked">
         <div ng-repeat="comment in comments">
           <div ng-if="comment.candID === candidate.name">
+            
+            <b>{{comment.name}}:</b>
+            <div class="container com">
+            {{comment.title}}
+            </div>
             <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesCom(comment)"></span>
+            - votes: {{comment.upvotes}}
             <span class="glyphicon glyphicon-remove" ng-if="username === comment.name" ng-click="delete(comment)"></span>
-            <b>{{comment.name}}</b>
-            {{comment.title}}- votes: {{comment.upvotes}}
+
           </div>
         </div>
       </div>
