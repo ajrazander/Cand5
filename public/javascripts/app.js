@@ -9,10 +9,9 @@ angular.module('candidate',[])
       
       
       $scope.login = function(uname) {
-        console.log("In login with "+$scope.formUsername);
         if(uname === '') { return; }
         console.log("In login with "+uname);
-        $scope.username = $scope.uname;
+        $scope.username = uname;
         console.log("In login with "+$scope.username);
         $scope.isLoggedIn = true;
       };
