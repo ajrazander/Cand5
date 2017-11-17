@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
-var CandSchema = new mongoose.Schema({
-  name: String,
+var CandidateSchema = new mongoose.Schema({
+  title: String,
   upvotes: {type: Number, default: 0},
 });
-mongoose.model('Candidate', CandSchema);
+
+mongoose.model('Candidate', CandidateSchema);
+
+CandidateSchema.methods.upvote = function(cb) {
+  this.upvotes += 1;
+  this.save(cb);
+};
