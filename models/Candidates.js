@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var CandidateSchema = new mongoose.Schema({
-  title: String,
+  name: String,
   upvotes: {type: Number, default: 0},
 });
 

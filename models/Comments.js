@@ -3,6 +3,7 @@ var CommentSchema = new mongoose.Schema({
   name: String,
   title: String,
   upvotes: {type: Number, default: 0},
+  candID: String
 });
 
 mongoose.model('Comment', CommentSchema);
