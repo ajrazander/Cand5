@@ -6,9 +6,10 @@ var ResponseSchema = new mongoose.Schema({
   candID: String
 });
 
-mongoose.model('Response', ResponseSchema);
 
 ResponseSchema.methods.upvote = function(cb) {
   this.upvotes += 1;
   this.save(cb);
 };
+
+mongoose.model('Response', ResponseSchema);
