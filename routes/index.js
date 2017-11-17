@@ -29,6 +29,7 @@ router.param('response', function(req, res, next, id) {
     return next();
   });
 });
+
 router.get('/responses/:response', function(req, res) {
   res.json(req.reponse);
 });

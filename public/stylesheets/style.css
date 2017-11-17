@@ -1,6 +1,8 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background:url(https://wallpapercave.com/wp/o5UXr4f.jpg) top right no-repeat;
+  background-attachment:fixed;
 }
 
 a {
@@ -11,9 +13,14 @@ h3 {
   margin-bottom: 8px;
 }
 
+.he {
+  background-color: lightblue;
+  border: 2px ridge black;
+}
+
 .cand {
   background-color: lightblue;
-  border: 2px double black;
+  border: 2px ridge black;
   width: 430px;
   padding: 5px;
   margin-top: 8px;

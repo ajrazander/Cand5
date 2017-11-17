@@ -50,12 +50,12 @@ angular.module('candidate',[])
       
       $scope.incrementUpvotesCand = function(candidate) {
         candidate.upvotes += 1;
-        $scope.upvote(candidate);
+        $scope.upvoteCand(candidate);
         $scope.getAllcandidates();
       };
       $scope.incrementUpvotesCom = function(comment) {
         comment.upvotes += 1;
-        $scope.upvote(comment);
+        $scope.upvoteCom(comment);
         $scope.getAllComments();
       };
       
@@ -73,7 +73,7 @@ angular.module('candidate',[])
       };
       $scope.getAllComments(); //create initial candidate list 
       
-      $scope.upvote = function(candidate) {
+      $scope.upvoteCand = function(candidate) {
         return $http.put('/candidates/' + candidate._id + '/upvote')
         .success(function(data){
           console.log("upvote worked");
@@ -81,7 +81,7 @@ angular.module('candidate',[])
         });
       };
       
-      $scope.upvote = function(comment) {
+      $scope.upvoteCom = function(comment) {
         return $http.put('/responses/' + comment._id + '/upvote')
         .success(function(data){
           console.log("upvote worked");
