@@ -92,7 +92,7 @@ angular.module('candidate',[])
           .success(function(data){
             console.log("delete worked");
           });
-        $scope.getAll();
+        $scope.getAllComments();
       };
     }
   ]);

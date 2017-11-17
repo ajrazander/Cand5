@@ -46,7 +46,7 @@ router.get('/responses/:candidate', function(req, res) {
 
 
 router.put('/responses/:response/upvote', function(req, res, next) {
-  req.response.upvote(function(err, response){
+  req.response.upvoteCom(function(err, response){
     if (err) { return next(err); }
     res.json(response);
   });
