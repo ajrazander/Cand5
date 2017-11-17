@@ -10,6 +10,7 @@ angular.module('candidate',[])
         if($scope.formUsername === '') { return; }
         console.log("In login with "+$scope.formUsername);
         $scope.username = $scope.formUsername;
+        console.log("In login with "+$scope.username);
         $scope.isLoggedIn = true;
       };
       $scope.createCand = function(candidate) {
@@ -42,7 +43,7 @@ angular.module('candidate',[])
             title: $scope.formContent,
             upvotes: 0,
             candID: candidate._id
-          });
+          })
         );
         $scope.formContent = '';
       };
